@@ -1,0 +1,35 @@
+
+#----------------------------- Global Properties ----------------------------#
+
+/outputDir:bin/$(Platform)
+/intermediateDir:obj/$(Platform)
+/platform:DesktopGL
+/config:
+/profile:Reach
+/compress:False
+
+#-------------------------------- References --------------------------------#
+
+
+#---------------------------------- Content ---------------------------------#
+
+#begin images/background.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:images/background.png
+
+#begin images/unilogo.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/build:images/unilogo.png
+
+#begin sounds/logo_miss.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:sounds/logo_miss.wav
+
+#begin sounds/logo_hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/build:sounds/logo_hit.wav
+

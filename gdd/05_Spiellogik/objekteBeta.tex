@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm} % Set page margins to prevent overflow
+
+\begin{document}
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.5} % Increase row height for better readability
+\setlength{\tabcolsep}{6pt} % Adjust column separation for better spacing
+\begin{tabular}{|m{2.5cm}|m{9cm}|m{3.5cm}|}
+\hline
+\textbf{Name} & \textbf{Beschreibung} & \textbf{Anforderung} \\ \hline
+Busch & Büsche können auf der ganzen Map verteilt sein. Wenn sich ein Spieler in der Nähe von einem befindet, kann er mit diesem interagieren und sich somit darin verstecken. Den Spieler verfolgende Polizisten/Kartellleute verlieren diesen dann aus den Augen, wenn er vor dem Verstecken weit genug entfernt war& Auswählbare Objekte \\ \hline
+Tür & Wenn sich ein Spieler in der Nähe einer Tür befindet, kann er mit dieser interagieren und sie somit öffnen. Um durch die Tür in den nächsten Raum gehen zu können müssen sich beide Spieler im Radius der Tür befinden  & Auswählbare Objekte, Kollidierend \\ \hline
+Shop & Die Spieler können mit dem Shop interagieren um ein Verkaufsfenster zu öffnen, in dem Sie die dort angebotenen Items kaufen können & Auswählbare Objekte, Kollidierend \\ \hline
+Verkäufer & NPCs mit denen die Spieler interagieren können. Ähnlich wie beim Shop öffnet sich ein Verkaufsfenster, in dem hier allerdings seltenere und wertvollere items gekauft werden können. Diese sind nur zu einer gewissen Anzahl verfügbar, welche sich mit der Zeit wieder auffüllt  & Auswählbare Objekte, Kollidierend \\ \hline
+Käufer & NPCS mit denen die Spieler interagieren können, um ihre Drogen zu verkaufen. Es erscheint eine Sprechblase in der der Käufer die Anzahl und den Preis pro Stück nennt, die Spieler können dann entweder annehmen oder ablehnen. Nach dem Kauf ist der Käufer für eine gewisse Zeit "gesättigt", bis er wieder neue Drogen kaufen möchte & Auswählbare Objekte, Kollidierend \\ \hline
+Crafting Station & Eine Station zum Herstellen der Drogen. Dazu müssen beide Spieler mit ihr interagieren um ein Minispiel zu starten, was erfolgreich beendet werden muss um die Drogen herzustellen. In diesem werden zufällig verschiedene Buttons in verschiedenen Farben auf dem Bildschirm angezeigt, die der Spieler mit der zugehörigen Farbe dann in einer gewissen Zeit drücken muss. Wenn die Spieler zu oft zu langsam sind oder die falsche Taste drücken schlägt die Herstellung fehl und das Minispiel endet in einer kleinen Explosion, welche den Spielern Schaden zufügt und ihre zur Herstellung verwendeten Materialien zerstört. Je nach Fehlerquote werden die Drogen bei erfolgreichem Abschließen in 3 verschiedenen Reinheitsstufen hergestellt, die aufsteigend beim Verkaufen einen höheren Preis erzielen. Im Verlaufe des Spiels können die Spieler die Crafting Station upgraden, um neue Rezepte freizuschalten und somit noch Wertvollere Drogen herstellen zu können & Auswählbare Objekte, Kollidierend \\ \hline
+\end{tabular}
+\caption{Selectable Game Objects}
+\label{tab:example}
+\end{table}
+\newpage
+\input{spielobjekte}
+\end{document}

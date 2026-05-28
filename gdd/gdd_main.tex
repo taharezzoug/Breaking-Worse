@@ -1,0 +1,101 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\usepackage[ngerman]{babel}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{everypage}
+
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Gruppe 05}
+\fancyhead[R]{\textbf{G}ame \textbf{D}esign \textbf{D}ocument}
+
+
+\begin{document}
+    \thispagestyle{plain}
+    \begin{center}
+        \large{\textbf{G}ame \textbf{D}esign \textbf{D}ocument} \\
+    \end{center}
+    \vspace{3em}
+    \begin{center}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=0.75\textwidth]{./figures/BreakingWorseLogo}
+            \label{fig:Breaking Worse}
+        \end{figure}
+    \end{center}
+    \vspace{1em}
+    \begin{center}
+        \textbf{Gruppe 05} \\
+        \vspace{2em}
+        Marlene Albrecht, Daniel Augustin, xxxxxx xxxxxxx,\\
+        xxxxxx xxxxx, Taha Rezzoug, Matteo Wittenberg \\
+        \vspace{1em}
+        Tutor: Luis Schaffner
+    \end{center}
+    
+    \vfill
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.2\textwidth]{./figures/uni-logo}
+        \label{fig:uni-logo}
+    \end{figure}
+    \begin{center}
+        Freiburg im Breisgau, 11.1.2025
+    \end{center}
+
+    \newpage
+    \renewcommand{\contentsname}{Inhaltsverzeichnis}
+    \tableofcontents
+
+    \newpage
+    \section{Änderungsliste}\label{sec:anderungsliste}
+    Es wurde nichts grundlegendes an der Spieldefinition geändert, nur das GDD verbessert und Sachen besser definiert.
+
+    \newpage
+    \section{Spielkonzept}\label{sec:spielkonzept}
+    Eine kurze, einleitende Zusammenfassung des Spiels und Beschreibung der zentralen Spielmechanik um einen Überblick über das Spiel zu bekommen.\\
+    \input{./02_Spielkonzept/zusammenfassung_des_spiels}
+    \input{./02_Spielkonzept/zentrale_spielmechanik}
+
+    \newpage
+    \section{Benutzeroberfläche}\label{sec:benutzeroberflache}
+    Hier wird erklärt, mit welchen Eingaben und über welche Steuerelemente der Spieler mit dem Spiel und dem Menü interagiert und wie diese aufgebaut sind.\\
+    \input{./03_Benutzeroberflaeche/spieler_interface}
+    \newpage
+    \input{./03_Benutzeroberflaeche/menue_struktur}
+
+    \newpage
+    \section{Technische Merkmale}\label{sec:technische-merkmale}
+    In diesem Abschnitt werden einerseits die verwendeten oder vorraussichtlich benötigten Technologien für die Erstellung Spiels und andererseits die Mindestvoraussetzungen, die benötigt werden um das Spiel laufen zu lassen, beschrieben.\\
+    \input{./04_Technische_Merkmale/verwendete_technologien}
+    \input{./04_Technische_Merkmale/mindestvoraussetzungen}
+
+    \newpage
+    \section{Spiellogik}\label{sec:spiellogik}
+    Dieses Kapitel setzt sich aus den fünf für die Spiellogik elementaren Teilen zusammen:\newline den Aktionen, den Spielobjekten, der Spielstruktur und den Statistiken und Achievements.
+    \input{./05_Spiellogik/optionen_und_aktionen}
+    \newpage
+    \input{./05_Spiellogik/spielobjekte}
+    \newpage
+    \input{./05_Spiellogik/spielstruktur}
+    \input{./05_Spiellogik/statistiken}
+    \newpage
+    \input{./05_Spiellogik/achievements}
+
+    \newpage
+    \section{Screenplay}\label{sec:screenplay}
+    \input{./06_Screenplay/screenplay}
+
+\end{document}

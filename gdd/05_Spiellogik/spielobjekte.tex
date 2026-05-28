@@ -1,0 +1,104 @@
+\newgeometry{top=2.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm}
+\subsection{Spielobjekte}\label{subsec:spielobjekte}
+
+\begin{tabular}{|m{1.5cm}|m{13cm}|m{2.5cm}|}
+    \hline
+    \textbf{Name} & \textbf{Beschreibung} & \textbf{Art} \\
+    \hline
+    Walter/ \newline Jesse &
+    Diese beiden Spielfiguren sind die von den Spielenden kontrollierten Objekte.
+    Spielfigur 1 ,,Walt'' wird von Spieler 1 gesteuert und auf der Map bewegt, Spielfigur 2 ,,Jesse'' von Spieler 2. Sie sind durch die Aktionen und Interaktionen mit anderen Spielobjekten schon hinreichend definiert. Da beide die gleichen Eigenschaften haben zählen sie als ein Objekt.\newline
+    \textbf{Aktionen}: Laufen ID01, Mit Tür interagieren ID02, Schiessen ID03, Schlagen ID04, Kochen ID05, Interagieren ID06, Items aufnehmen ID07, Verstecken ID09, Waffe wechseln ID10 \newline
+    \textbf{Eigenschaften:} Health, Money, Inventory, Wanted Level, Bewegungsgeschwindigkeit ist ca 20\% höher als die der Polizei um eine Chance zum Entkommen zu haben.
+
+    & kontrollierbar \newline
+    kollidierend \newline
+    beweglich \\
+
+    \hline
+    Polizei &
+    Polizei ist einer der beiden Gegnertypen im Spiel, sie werden durch eine KI gesteuert.
+    Sie laufen auf der Map herum, vor allem dort wo viele NPCs sind.
+    Das Polizeiaufgebot hängt vom aktuellen Fahndungslevel ab, heißt je gesuchter Walt und Jesse gerade sind, desto mehr Polizisten verfolgen sie.
+    Ein einzelner Polizist hat ein kegelförmiges Sichtfeld.
+    Führen Walt oder Jesse in diesem Bereich eine verdächtige Aktion aus (dazu gehören Drogen verkaufen, Zutaten einkaufen, im Busch verstecken, Kartell angreifen und Polizei angreifen), dann wird der Polizist alerted und das globale Fahndungslevel steigt.
+    Schaffen es Walt und Jesse für einen gewissen Zeitraum außerhalb des Sichtfelds jeglicher Beamten zu bleiben, so wird das Fahndungslevel wieder auf 0 gesetzt.
+    Während das Fahndungslevel größer 0 ist verfolgen die Polizisten Walt und Jesse.
+    Schafft es ein Polizist nah genug an Walt oder Jesse heranzulaufen gilt das als festnehmen und der globale Timer wird verkürzt (simuliert Gefängnis).
+    Walt und Jesse können also durch Wegrennen entkommen.
+    Sie können aber auch durch schlagen und schießen Polizisten ausschalten. &
+    kontrollierbar (durch KI), kollidierend, beweglich\\
+    \hline
+
+    \hline
+    Kartell &
+    Kartellmitglieder sind eine der beiden Gegnertypen im Spiel.
+    Sie konkurrieren mit Walt und Jesse im Drogengeschäft und sind ihnen deshalb feindlich gesinnt
+    Sie laufen alleine oder in Gruppen durch ihre Reviere (nicht die ganze Map).
+    Sie haben ein kegelförmiges Sichtfeld.
+    Befindet sich Walt oder Jesse in diesem Sichtfeld greift das Kartellmitglied sofort an.
+    Dabei kommen Fäuste und Waffen zum Einsatz (abhängig von Schwierigkeitsstufe)
+    Um diesen Angriff zu beenden, können Walt und Jesse das Kartellmitglied entweder umbringen oder das Revier des Kartells verlassen.&
+    kollidierend, beweglich\\
+    \hline
+
+    \hline
+    NPC &
+    Verkäufer NPCs sind Bewohner der Stadt, die überall auf der Map anzutreffen sind.
+    Sie können stationär an einem Punkt stehen bleiben aber auch durch die KI gesteuert über die Map laufen und sich zu Orten mit wenig Polizeipräsenz bewegen.
+    Walt und Jesse können ihnen Drogen verkaufen.
+    Das Handeln mit NPCs in Revieren des Kartells ist meistens lukrativer. &
+    kontrollierbar (durch KI), kollidierend, beweglich\\
+    \hline
+
+\end{tabular}
+\newpage
+\noindent
+\begin{tabular}{|m{1.8cm}|m{12.7cm}|m{2.5cm}|}
+    \hline
+    Verkäufer / Shop &
+    Verkäufer/Shop sind Bewohner/Gebäude der Stadt, die auf der Map anzutreffen sind.
+    Walt und Jesse können bei ihnen Zutaten kaufen.
+    In den Shops können Walt und Jesse andere Items kaufen als bei den Verkäufern. &
+    kontrollierbar (durch KI), kollidierend, beweglich\\
+    \hline
+
+    \hline
+    Crafting Station &
+    Wenn die Spielfiguren sich in der Nähe der Crafting Station befinden, können sie die Aktion kochen (ID06) ausführen.
+    Es öffnet sich ein Dialogfeld, bei dem man auswählen kann, welches Rezept gekocht werden soll. Außerdem wird eine
+    Übersicht mit allen vorhandenen Zutaten angezeigt. Danach muss ein Minispiel erfolgreich beendet werden, damit
+    die Droge auch wirklich hergestellt wird. Ansonsten gehen die Zutaten verloren. Im Verlaufe des Spiels können die Spieler die Crafting Station upgraden,
+     um neue Rezepte freizuschalten und somit noch Wertvollere Drogen herstellen zu können&
+    auswählbar, kollidierend\\
+    \hline
+
+    \hline
+    Busch &
+    Die Spielfiguren haben während des Spiels die Möglichkeit mit Aktion ID09 sich in einem Busch zu verstecken.
+    Die Spielfigur verschwindet von der Map und ist auch für die Polizei unsichtbar. Das gilt allerdings nur,
+    wenn die Spielfigur nicht gerade von der Polizei verfolgt wurde, also sich nicht im Radius eines Polizisten befindet.
+    Anderenfalls sieht der Polizist wie die Spielfigur sich versteckt und kann ihn trozdem fangen und festnehmen. &
+    auswählbar\\
+    \hline
+
+    \hline
+    Mülleimer &
+    Auf der Map befinden sich Mülleimer, die vom Spieler mit einem Schlag (ID04) umgeworfen werden können. Manchmal wird dann eine Zutat gedropt.
+    Nach einer bestimmten Zeit verschwindet der umgeworfene Mülleimer und spawnt neu und kann erneut umgeschmissen werden. &
+    kontrollierbar, kollidierend\\
+    \hline
+
+    \hline
+    Tür &
+    Manche Türen im Spiel können mit Aktion ID02 geöffnet werden, und ermöglichen dadurch den Zugang zu einem weiteren Teil der Map (z.B. Haus). &
+    auswählbar, kollidierend, kontrollierbar\\
+    \hline
+
+
+    %\caption{Spielobjekte}
+    %\label{tab:spielobjekte}
+
+\end{tabular}
+
+\newgeometry{top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm}

@@ -1,0 +1,122 @@
+\subsection{Optionen und Aktionen}\label{subsec:optionen-und-aktionen}
+
+Im folgenden Abschnitt werden die Aktionen und Optionen, die der Spieler im Spiel verwenden kann, aufgelistet und beschrieben.\\
+
+
+
+\let\origclearpage\clearpage
+\renewcommand{\clearpage}{\relax}
+
+\newgeometry{top=2.5cm, bottom=2.5cm, left=1.5cm, right=1.5cm}
+
+\begin{longtable}{|p{1.6cm}|p{1.9cm}|p{5.5cm}|p{3.2cm}|p{4.2cm}|}
+    \hline
+    \rowcolor{gray!30}
+    \textbf{ID / Name} & \textbf{Akteure} & \textbf{Ereigniseinfluss} & \textbf{Anfangsbedingungen} & \textbf{Abschlussbedingun- gen} \\
+    \hline
+    \endfirsthead
+
+    \hline
+    \rowcolor{gray!30}
+    \textbf{ID / Name} & \textbf{Akteure} & \textbf{Ereigniseinfluss} & \textbf{Anfangsbedingungen} & \textbf{Abschlussbedingun- gen} \\
+    \hline
+    \endhead
+
+    % Inhalt der Tabelle
+    ID01: Laufen & Spieler, Polizei KI, NPC KI&
+    1. Spieler drückt Taste (oben, unten, rechts, links / w, a, s, d) \newline
+    2. Spielfigur bewegt sich in die entsprechende Richtung &
+    Spielfigur befindet sich auf der Map &
+    Spielfigur befindet sich weiter rechts/links/ oben/unten auf der Map \\
+    \hline
+    ID02: mit Tür interagieren & Spieler &
+    1. beide Spielfiguren befinden sich in unmittelbarer Nähe einer begehbaren Tür \newline
+    2. ein Spieler drückt die Interagieren-Taste\newline
+    3. Tür öffnet sich und ein weiterer Teil der Map ist begehbar &
+    beide Spielfiguren befinden sich in der Nähe einer geschlossenen Tür &
+    die Spielfiguren befinden sich in der Nähe einer offenen Tür\\
+    \hline
+    ID03: schießen & Spieler, Kartell KI &
+    1. Spieler drückt Taste \newline
+    2. Spielfigur schiesst in die die Richtung in die sie schaut \newline
+    3. Jeder NPC (ausser Verkäufer) und Mülleimer, der im Sichtkegel ist erhält schaden (verringert HP) &
+    Spielfigur muss eine Waffe ausgewählt haben &
+    Jede Spielfigur, die im Sichtkegel ist hat schaden erhalten (verringerte HP)
+    ODER Mülleimer fällt um und dropt manchmal ein Item \\
+    \hline
+    ID04: schlagen & Spieler, Kartell KI &
+    1. Spieler drückt Taste \newline
+    2. Spielfigur führt Schlag aus \newline
+    3. Mülleimer/Gegner in unmittelbarem Umfeld kann Schaden nehmen \newline
+    Gegner verliert HP \newline
+    ODER\newline
+    Mülleimer fällt um und dropt manchmal ein Item&
+    Spielfigur hat keine Waffe ausgewählt &
+    Mülleimer ist liegt auf dem Boden ggf. ein Item daneben \newline
+    ODER\newline
+    Gegner/Spielfigur hat weniger HP \\
+    \hline
+    ID05: kochen & Spieler &
+    1. Spieler drückt die interagieren Taste, während beide Spielfiguren sich in der Nähe einer Crafting Station befindet \newline
+    2. Spieler wählt Rezep aus, welches zubereitet werden soll.
+     Ein Minispiel startet, was erfolgreich beendet werden muss um die Drogen herzustellen.
+     In diesem werden zufällig verschiedene Buttons in verschiedenen Farben auf dem Bildschirm angezeigt, 
+     die der Spieler mit der zugehörigen Farbe dann in einer gewissen Zeit drücken muss. 
+     Wenn die Spieler zu oft zu langsam sind oder die falsche Taste drücken schlägt die Herstellung fehl 
+     und das Minispiel endet und die zur Herstellung verwendeten Materialien werden zerstört. &
+
+    Beide Spielfiguren befinden sich in der Nähe der Crafting Station &
+    Weniger Ressourcen und falls das Kochen erfolgreich war mehr Drogen im Inventar \\
+    \hline
+    ID06: mit Käufer/ Verkäufer handeln & Spieler &
+    1. Spieler drückt interagieren Taste, während die Spielfigur sich in der Nähe eines interaktiven NPC aufhält \newline
+    2. je nach NPC: \newline
+    - Verkäufer: es öffnet sich ein Dialog-Feld und zeigt die zu kaufenden Gegenstände an \newline
+    - Käufer: bietet bestimmte Menge Geld für bestimmte Menge Drogen (unterschiedlich je Käufer), Spieler kann das Angbot annehmen oder ablehnen &
+    Spielfigur befindet sich in unmittelbarer Nähe von einem interaktiven NPC &
+    Bei Kauf: Mehr Ressourcen und weniger Geld \newline
+    ODER \newline
+    Bei Verkauf: Mehr Geld und weniger Drogen \newline
+    ODER \newline
+    Man nimmt das Angebot nicht an/ kauft nichts, man hat also gleich viel Ressourcen und Geld wie davor\\
+    \hline
+    ID07: Items aufnehmen & Spieler &
+    1. Spielfigur befindet sich auf einem Item \newline
+    2. Item verschwindet von Map und wird im Inventar abgelegt &
+    Spielfigur befindet sich direkt vor dem Item &
+    Item befindet sich im Inventar der Spielfigur und ist von der Map verschwunden \\
+    \hline
+    ID08: Polizist verfolgt Spielfigur & Polizei KI&
+    1. Polizist bemerkt verdächtiges Verhalten(z.B. Verkauf von Drogen, schießen, \dots) innerhalb seines Radars \newline
+    2. Polizist identifiziert Spieler \newline
+    3. Polizist verfolgt Spieler, solange dieser in seinem Sichtfeld/Radar ist  &
+    Spielfigur befindet sich im Radar des Polizisten und tut etwas Verdächtiges &
+    Spielfigur konnte vor Polizei fliehen oder sich verstecken \newline
+    ODER\newline
+    Polizei nimmt Spielfigur gefangen und sie kommt ins Gefängnis \\
+    \hline
+    ID09: verstecken & Spieler &
+    1. Spielfigur befindet sich in der Nähe eines Busches\newline
+    2. Spieler drückt Taste\newline
+    - wenn sich die Spielfigur innerhalb des Radius der Polizei befindet ist verstecken nicht möglich, da die Polizei das sonst sieht
+    - außerhalb des Radius der Polizei kann sich die Spielfigur in dem Busch verstecken und ist für die Polizei nicht auffindbar &
+    Spielfigur befindet sich neben einem Busch und außerhalb des Radius der Polizei &
+    Spielfigur befindet sich in dem Busch und ist für Polizei nicht sichtbar \\
+    \hline
+    ID10: Waffe wechseln & Spieler &
+    1. Spieler drückt Taste zum Waffe wechseln \newline
+    2. Waffe wird gewechselt &
+    Spielfigur hat Pistole nicht ausgewählt\newline
+    ODER\newline
+    Spielfigur hat Pistole ausgewählt &
+
+    Spielfigur hat Pistole ausgewählt wenn vorher nicht ausgewählt \newline
+    ODER\newline
+    Spielfigur hat nicht die Pistole ausgewählt, wenn vorher ausgewählt  \\
+    \hline
+\end{longtable}
+
+\let\clearpage\origclearpage
+\restoregeometry
+
+
